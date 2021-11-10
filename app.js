@@ -56,7 +56,7 @@
 	//--------video 6---template engines EJS con Express---------------------------------------------------------------------------------------
 	const express = require('express');//? utilisa la "libreria" descargada con npm
 	const app = express(); //? utilisa lo que se guarda en la variavle de arriba
-	const port = 3000;
+	const port = process.env.PORT || 3000;
 	app.set("view engine", "ejs");//? indica que se istalo en este caso ejs  
     app.set("views", __dirname + "/views-vistas");//? nota :: poner la direccion con el   nombre como la carpeta de views 
 	app.use(express.static(__dirname + "/public"));
