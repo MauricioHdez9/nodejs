@@ -56,21 +56,26 @@
 	//--------video 6---template engines EJS con Express---------------------------------------------------------------------------------------
 	const express = require('express');//? utilisa la "libreria" descargada con npm
 	const app = express(); //? utilisa lo que se guarda en la variavle de arriba
-	const port = process.env.PORT || 3000;
+	const port = process.env.PORT || 3000; //? puerto  que lo da por defeto o el 3000
+
+	//?conexion a la base de datos 
+	let user= 'testermau';
+	let password='9PwQEptS9t5fbujs';
+	let nameBD ='veterinaria'
+	let url=`mongodb+srv://testermau:${password}@cluster0.vbjcd.mongodb.net/${nameBD}?retryWrites=true&w=majority`;
+	const mongoose = require('mongoose');
+	mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true})
+	
+	.then(() =>console.log('base de datos conetada'))
+    .catch(e =>console.log(e))
+
 	app.set("view engine", "ejs");//? indica que se istalo en este caso ejs  
     app.set("views", __dirname + "/views-vistas");//? nota :: poner la direccion con el   nombre como la carpeta de views 
 	app.use(express.static(__dirname + "/public"));
 
-	app.get('/',(req,res)=>
-	{
-		// console.log(__dirname)
-		res.render("index",{titulo:"mi titulo dinamico "});//investigar que  hace render= configurado por express ver tamvien que hace express 
-	})
- app.get('/servicios',(req,res) =>
- {
-	 res.render("servicios",{tituloservicios:"este es un mesaje dinamico de servicios"});
-	})
-	
+	//?rutasweb
+	app.use('/',require('./router/rutasweb'));
+	app.use('/mascotas',require('./router/mascotas'))
 	
 	app.listen(port,() =>
 	{

@@ -1,0 +1,32 @@
+<%-	include("template/cabesera",{tituloWeb:'pagina de inicio '})  %> 
+ <div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">nombre</th>
+            <th scope="col">descripcion</th>
+            <th scope="col">accion</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% if (arraymascotas.length>0) { %>
+                <% arraymascotas.forEach(maskotas => { %>
+                    <tr>
+                    <th scope="row"><%= maskotas.id  %>  </th> <!-- //= <%=  %> == ejs ejsout escapa los caracteres solo como texto  -->
+                    <td> <%= maskotas.nombre %> </td>
+                    <td> <%= maskotas.descripcion %></td>
+                    <td>@mdo</td>
+            
+                    </tr>
+                      
+        
+                <% }) %>
+             <% } %>
+         
+         
+        </tbody>
+      </table>
+     
+ </div>
+<%- include("template/footer")%> 
