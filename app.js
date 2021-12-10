@@ -56,6 +56,8 @@
 	//--------video 6---template engines EJS con Express---------------------------------------------------------------------------------------
 	const express = require('express');//? utilisa la "libreria" descargada con npm
 	const app = express(); //? utilisa lo que se guarda en la variavle de arriba
+	app.timeout = 1000;
+
 	require('dotenv').config();
 	const port = process.env.PORT || 3000; //? puerto  que lo da por defeto o el 3000
 
