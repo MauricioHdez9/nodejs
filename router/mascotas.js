@@ -10,7 +10,7 @@ router.get('/',async(req,res)=>
     {
         let arrayMascotasDB = await Mascota.find();//!investigar 
         // console.log(arrayMascotasDB);
-        res.render("mascotas",{ //!investigar  que es un render
+        res.render("mascotas",{ //!investigar  que es un render+
             arraymascotas:arrayMascotasDB //? nombre la propiedad : contenido ==todo esto es un objeto
         
         //      arraymascotas:[

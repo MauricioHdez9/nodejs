@@ -56,14 +56,12 @@
 	//--------video 6---template engines EJS con Express---------------------------------------------------------------------------------------
 	const express = require('express');//? utilisa la "libreria" descargada con npm
 	const app = express(); //? utilisa lo que se guarda en la variavle de arriba
+	require('dotenv').config();
 	const port = process.env.PORT || 3000; //? puerto  que lo da por defeto o el 3000
 
 	//?conexion a la base de datos 
-	let user= 'testermau';
-	let password='9PwQEptS9t5fbujs';
-	let nameBD ='veterinaria'
-	let url=`mongodb+srv://testermau:${password}@cluster0.vbjcd.mongodb.net/${nameBD}?retryWrites=true&w=majority`;
 	const mongoose = require('mongoose');
+	let url=`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.vbjcd.mongodb.net/${process.env.NAMEBD}?retryWrites=true&w=majority`;
 	mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true})
 	
 	.then(() =>console.log('base de datos conetada'))
