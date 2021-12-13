@@ -1,5 +1,9 @@
 <%-	include("template/cabesera",{tituloWeb:'mascotas '})  %> 
  <div class="container">
+    
+    <div class="d-grid gap-2">
+      <button class="btn btn-dark my-4" type="button"><a href="mascotas/crear" class="btn  btn-warning btn-block">crear una nueva mascota </a></button>
+    </div>
     <table class="table">
         <thead>
           <tr>
@@ -16,7 +20,9 @@
                     <th scope="row"><%= maskotas.id  %>  </th> <!-- //= <%=  %> == ejs ejsout escapa los caracteres solo como texto  -->
                     <td> <%= maskotas.nombre %> </td>
                     <td> <%= maskotas.descripcion %></td>
-                    <td>@mdo</td>
+                    <td>
+                      <a class="btn btn-info" href="">editar</a>
+                      <a class="btn btn-danger" href="">eliminar</a></td>
             
                     </tr>
                       
